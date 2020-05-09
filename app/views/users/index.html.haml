@@ -1,0 +1,20 @@
+%h1 Users all
+
+- if @users.any?
+  %table
+    %thead
+      %th
+        Name
+      %th
+        Image
+    %tbody
+      = @users.each do |user|
+        %tr
+          %td
+            = user.name
+          %td
+            = user.avatar
+- else
+  %p Users Not found.
+
+= link_to "New user", new_user_path
