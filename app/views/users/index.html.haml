@@ -8,12 +8,12 @@
       %th
         Image
     %tbody
-      = @users.each do |user|
+      - @users.each do |user|
         %tr
           %td
             = user.name
           %td
-            = user.avatar
+            = image_tag user.avatar.variant(resize: "50x50")
 - else
   %p Users Not found.
 
