@@ -9,7 +9,15 @@ $(document).on("turbolinks:load", function() {
         const reader = new FileReader();
         reader.onload = function (e) {
           let imageFile = e.target.result
-          $(".preview").append(`<img src="${imageFile}" width="100" heigth="100">`);
+          if (files.length === 1) {
+            console.log("1");
+            $(".preview").html(`<img src="${imageFile}" id="first-image" width="100" heigth="100">`);
+          }
+          else {
+            console.log(i)
+            $("#first-image").remove();
+            $(".preview").append(`<img src="${imageFile}" id="${i}" width="100" heigth="100">`);
+          }
         }
         // $("#avatar_preview").attr("src", e.target.result);
         reader.readAsDataURL(files[i]);
