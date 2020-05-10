@@ -7,13 +7,21 @@
         Name
       %th
         Image
+      %th{colspan: 2}
     %tbody
       - @users.each do |user|
         %tr
           %td
             = user.name
           %td
-            = image_tag user.avatar.variant(resize: "50x50")
+            -# = image_tag user.avatar.variant(resize: "50x50")
+            -  if user.avatars.attached?
+              - user.avatars.each do |avatar|
+                = image_tag avatar.variant(resize: "100x100"), style: "vertical-align: middle;"
+          %td
+            = link_to "Edit", edit_user_path(user)
+          %td
+            = link_to "Delete", user, method: :delete
 - else
   %p Users Not found.
 
