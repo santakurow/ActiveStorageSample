@@ -1,24 +1,25 @@
-# README
+# ActiveStorageSample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ActiveStorageを使った画像アップロード機能のサンプル実装
 
-Things you may want to cover:
+#### 言語
+* Ruby 2.6.4
+* Haml
+* Javascript
 
-* Ruby version
+#### フレームワーク
+* Ruby on Rails 6
 
-* System dependencies
+#### ライブラリ
 
-* Configuration
+* jQuery 3.5.1
 
-* Database creation
+#### DB
 
-* Database initialization
+* MySQL
 
-* How to run the test suite
+#### 使用技術・ツール
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* ActiveStorage
+* haml-rails (gem)
+* Webpack
