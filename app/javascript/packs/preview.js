@@ -1,15 +1,20 @@
 $(document).on("turbolinks:load", function() {
 
   const readURL = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        // console.log(e.target.result);
-        $(".preview").append(`<img src="${e.target.result}" width="100" heigth="100">`);
+    let files = event.target.files;
+    if (files && files[0]) {
+      for (let i = 0; i < files.length; i++) {
+        // console.log(event.target.files[i]);
+        if (!files[i].type.match("image")) continue;
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          let imageFile = e.target.result
+          $(".preview").append(`<img src="${imageFile}" width="100" heigth="100">`);
+        }
         // $("#avatar_preview").attr("src", e.target.result);
+        reader.readAsDataURL(files[i]);
       }
 
-      reader.readAsDataURL(event.target.files[0]);
     }
   }
 
