@@ -1,6 +1,7 @@
 # ActiveStorageSample
 
-ActiveStorageを使った画像アップロード機能のサンプル実装
+ActiveStorageを使った画像アップロード機能のサンプル実装。  
+複数アップロードにも対応。
 
 #### 言語
 * Ruby 2.6.4
