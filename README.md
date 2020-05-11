@@ -21,5 +21,6 @@ ActiveStorageを使った画像アップロード機能のサンプル実装
 #### 使用技術・ツール
 
 * ActiveStorage
+* image-processing (gem)
 * haml-rails (gem)
 * Webpack
