@@ -1,15 +1,4 @@
 %h1 Edit User
 
-= form_with model: @user, local: true do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :avatars
-  = f.file_field :avatars, multiple: true
-  .preview
-    - if @user.avatars.attached?
-      - @user.avatars.each do |avatar|
-        = image_tag avatar.variant(resize: "100x100")
+= render "shared/form", object: @user, submit: "Edit"
 
-  = f.submit "Edit"
-
-= link_to "Back", root_path

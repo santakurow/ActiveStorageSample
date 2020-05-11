@@ -1,0 +1,22 @@
+= form_with model: object, local: true do |f|
+  = render "shared/errors", model: f.object
+  = f.label :name
+  = f.text_field :name
+  = f.label :avatars
+  -# - if request.path == new_user_path
+  - if current_page?(action: "new")
+    = f.file_field :avatars, multiple: true
+  - else
+    = f.file_field :avatars, multiple: true, accept: "image/png, image/gif, image/jpeg"
+
+  - if current_page?(action: "new")
+    .preview
+  - else
+    .preview
+      - if object.avatars.attached?
+        - object.avatars.each do |avatar|
+          = image_tag avatar.variant(resize: "100x100")
+
+  = f.submit submit
+
+= link_to "Back", root_path

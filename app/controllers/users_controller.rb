@@ -9,10 +9,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      redirect_to root_path, success: "Created successfully!"
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "Create successfully!"
+      redirect_to root_path
     else
+      flash.now[:notice] = "Not created user."
       render :new
     end
   end
@@ -21,11 +23,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @user = User.find(params[:id])
   end
 
   def update
-    # @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to root_path
     else
@@ -34,7 +34,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # @user = User.find(params[:id])
     @user.destroy
     redirect_to root_url
   end

@@ -1,12 +1,3 @@
 %h1 Create User
 
-= form_with model: @user, local: true do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :avatars
-  = f.file_field :avatars, multiple: true
-  .preview
-
-  = f.submit "Create!"
-
-= link_to "Back", root_path
+= render "shared/form", object: @user, submit: "Create!"
